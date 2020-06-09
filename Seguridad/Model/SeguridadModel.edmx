@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Seguridad2017Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Seguridad2017ModelStoreContainer">
+          <EntitySet Name="Aplicaciones" EntityType="Seguridad2017Model.Store.Aplicaciones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AplicacionesUA" EntityType="Seguridad2017Model.Store.AplicacionesUA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ExcepcionesLog" EntityType="Seguridad2017Model.Store.ExcepcionesLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modulos" EntityType="Seguridad2017Model.Store.Modulos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RegistroEventos" EntityType="Seguridad2017Model.Store.RegistroEventos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="Seguridad2017Model.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RolesPermisos" EntityType="Seguridad2017Model.Store.RolesPermisos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UnidadesAdministrativas" EntityType="Seguridad2017Model.Store.UnidadesAdministrativas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuarios" EntityType="Seguridad2017Model.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UsuariosPermisos" EntityType="Seguridad2017Model.Store.UsuariosPermisos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UsuariosRoles" EntityType="Seguridad2017Model.Store.UsuariosRoles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AplicacionesUA_Aplicaciones" Association="Seguridad2017Model.Store.FK_AplicacionesUA_Aplicaciones">
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+            <End Role="AplicacionesUA" EntitySet="AplicacionesUA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AplicacionesUA_UnidadesAdministrativas" Association="Seguridad2017Model.Store.FK_AplicacionesUA_UnidadesAdministrativas">
+            <End Role="UnidadesAdministrativas" EntitySet="UnidadesAdministrativas" />
+            <End Role="AplicacionesUA" EntitySet="AplicacionesUA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modulos_Aplicaciones" Association="Seguridad2017Model.Store.FK_Modulos_Aplicaciones">
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+            <End Role="Modulos" EntitySet="Modulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roles_UnidadesAdministrativas" Association="Seguridad2017Model.Store.FK_Roles_UnidadesAdministrativas">
+            <End Role="UnidadesAdministrativas" EntitySet="UnidadesAdministrativas" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesPermisos_Modulos" Association="Seguridad2017Model.Store.FK_RolesPermisos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="RolesPermisos" EntitySet="RolesPermisos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesPermisos_Roles" Association="Seguridad2017Model.Store.FK_RolesPermisos_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolesPermisos" EntitySet="RolesPermisos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_UnidadesAdministrativas" Association="Seguridad2017Model.Store.FK_Usuarios_UnidadesAdministrativas">
+            <End Role="UnidadesAdministrativas" EntitySet="UnidadesAdministrativas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosPermisos_Modulos" Association="Seguridad2017Model.Store.FK_UsuariosPermisos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="UsuariosPermisos" EntitySet="UsuariosPermisos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosPermisos_Usuarios" Association="Seguridad2017Model.Store.FK_UsuariosPermisos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="UsuariosPermisos" EntitySet="UsuariosPermisos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosRoles_Roles" Association="Seguridad2017Model.Store.FK_UsuariosRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UsuariosRoles" EntitySet="UsuariosRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosRoles_Usuarios" Association="Seguridad2017Model.Store.FK_UsuariosRoles_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="UsuariosRoles" EntitySet="UsuariosRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Aplicaciones">
+          <Key>
+            <PropertyRef Name="idAplicacion" />
+          </Key>
+          <Property Name="idAplicacion" Type="int" Nullable="false" />
+          <Property Name="Agregado" Type="datetime" Nullable="false" />
+          <Property Name="Modificado" Type="datetime" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="15" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="60" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Activa" Type="bit" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="200" />
+          <Property Name="Version" Type="varchar" MaxLength="10" />
+          <Property Name="Icono" Type="varchar" MaxLength="255" />
+          <Property Name="Intentos" Type="int" />
+        </EntityType>
+        <EntityType Name="AplicacionesUA">
+          <Key>
+            <PropertyRef Name="idAplicacionUA" />
+          </Key>
+          <Property Name="idAplicacionUA" Type="int" Nullable="false" />
+          <Property Name="idUnidadAdministrativa" Type="int" Nullable="false" />
+          <Property Name="idAplicacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExcepcionesLog">
+          <Key>
+            <PropertyRef Name="idExcepcion" />
+          </Key>
+          <Property Name="idExcepcion" Type="int" Nullable="false" />
+          <Property Name="idUnidadAdministrativa" Type="int" />
+          <Property Name="idAplicacion" Type="int" />
+          <Property Name="idModulo" Type="int" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="UsuarioIP" Type="varchar" MaxLength="50" />
+          <Property Name="Mensaje" Type="text" />
+          <Property Name="StackTrace" Type="text" />
+          <Property Name="TargetSite" Type="text" />
+          <Property Name="HelpLink" Type="text" />
+          <Property Name="FechaHora" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="idModulo" />
+          </Key>
+          <Property Name="idModulo" Type="int" Nullable="false" />
+          <Property Name="Agregado" Type="datetime" Nullable="false" />
+          <Property Name="Modificado" Type="datetime" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="idAplicacion" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="15" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="MenuNavigateURL" Type="varchar" MaxLength="300" />
+          <Property Name="MenuToolTip" Type="varchar" MaxLength="100" />
+          <Property Name="MenuVisibleIndex" Type="int" />
+          <Property Name="MenuImage" Type="varchar" MaxLength="300" />
+          <Property Name="Padre" Type="int" />
+          <Property Name="Permisos" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="RegistroEventos">
+          <Key>
+            <PropertyRef Name="idRegistroEvento" />
+          </Key>
+          <Property Name="idRegistroEvento" Type="int" Nullable="false" />
+          <Property Name="idUnidadAdministrativa" Type="int" />
+          <Property Name="idAplicacion" Type="int" />
+          <Property Name="idModulo" Type="int" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="UsuarioIP" Type="varchar" MaxLength="100" />
+          <Property Name="UsuarioAg" Type="varchar" MaxLength="250" />
+          <Property Name="FechaHora" Type="datetime" Nullable="false" />
+          <Property Name="ResultadoOperacion" Type="bit" />
+          <Property Name="PistaColor" Type="int" />
+          <Property Name="PistaTipo" Type="int" />
+          <Property Name="PistaDetalle" Type="varchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="Agregado" Type="datetime" Nullable="false" />
+          <Property Name="Modificado" Type="datetime" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="idUnidadAdministrativa" Type="int" Nullable="false" />
+          <Property Name="idAplicacion" Type="int" />
+          <Property Name="Codigo" Type="varchar" MaxLength="15" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RolesPermisos">
+          <Key>
+            <PropertyRef Name="idRolPermisos" />
+          </Key>
+          <Property Name="idRolPermisos" Type="int" Nullable="false" />
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="idModulo" Type="int" Nullable="false" />
+          <Property Name="Visualizar" Type="bit" Nullable="false" />
+          <Property Name="Agregar" Type="bit" />
+          <Property Name="Modificar" Type="bit" />
+          <Property Name="Eliminar" Type="bit" />
+          <Property Name="Especial" Type="bit" />
+        </EntityType>
+        <EntityType Name="UnidadesAdministrativas">
+          <Key>
+            <PropertyRef Name="idUnidadAdministrativa" />
+          </Key>
+          <Property Name="idUnidadAdministrativa" Type="int" Nullable="false" />
+          <Property Name="Agregado" Type="datetime" Nullable="false" />
+          <Property Name="Modificado" Type="datetime" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="Clave" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="RFC" Type="varchar" Nullable="false" MaxLength="13" />
+          <Property Name="Telefono" Type="varchar" MaxLength="100" />
+          <Property Name="idSectorPublico" Type="int" Nullable="false" />
+          <Property Name="idSecPubFin" Type="int" Nullable="false" />
+          <Property Name="idSectorEconomico" Type="int" Nullable="false" />
+          <Property Name="idEntePublico" Type="int" Nullable="false" />
+          <Property Name="Notas" Type="varchar" MaxLength="500" />
+          <Property Name="Padre" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="Agregado" Type="datetime" Nullable="false" />
+          <Property Name="Modificado" Type="datetime" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="idUnidadAdministrativa" Type="int" Nullable="false" />
+          <Property Name="idAplicacion" Type="int" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Pwd" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Puesto" Type="varchar" MaxLength="255" />
+          <Property Name="Telefono" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Notas" Type="varchar" MaxLength="255" />
+          <Property Name="UsaBiometricos" Type="bit" Nullable="false" />
+          <Property Name="PasswordQuestion" Type="varchar" MaxLength="255" />
+          <Property Name="PasswordAnswer" Type="varchar" MaxLength="255" />
+          <Property Name="IsOnLine" Type="bit" />
+          <Property Name="IsApproved" Type="bit" />
+          <Property Name="IsLockedOut" Type="bit" />
+          <Property Name="LastLoginDate" Type="datetime" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" />
+          <Property Name="LastLockoutDate" Type="datetime" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" />
+          <Property Name="DiasVigenciaPassword" Type="int" />
+        </EntityType>
+        <EntityType Name="UsuariosPermisos">
+          <Key>
+            <PropertyRef Name="idUsuarioPermiso" />
+          </Key>
+          <Property Name="idUsuarioPermiso" Type="int" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="idModulo" Type="int" Nullable="false" />
+          <Property Name="Visualizar" Type="bit" Nullable="false" />
+          <Property Name="Agregar" Type="bit" />
+          <Property Name="Modificar" Type="bit" />
+          <Property Name="Eliminar" Type="bit" />
+          <Property Name="Especial" Type="bit" />
+        </EntityType>
+        <EntityType Name="UsuariosRoles">
+          <Key>
+            <PropertyRef Name="idUsuarioRol" />
+          </Key>
+          <Property Name="idUsuarioRol" Type="int" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="idRol" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AplicacionesUA_Aplicaciones">
+          <End Role="Aplicaciones" Type="Seguridad2017Model.Store.Aplicaciones" Multiplicity="1" />
+          <End Role="AplicacionesUA" Type="Seguridad2017Model.Store.AplicacionesUA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aplicaciones">
+              <PropertyRef Name="idAplicacion" />
+            </Principal>
+            <Dependent Role="AplicacionesUA">
+              <PropertyRef Name="idAplicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AplicacionesUA_UnidadesAdministrativas">
+          <End Role="UnidadesAdministrativas" Type="Seguridad2017Model.Store.UnidadesAdministrativas" Multiplicity="1" />
+          <End Role="AplicacionesUA" Type="Seguridad2017Model.Store.AplicacionesUA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesAdministrativas">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Principal>
+            <Dependent Role="AplicacionesUA">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modulos_Aplicaciones">
+          <End Role="Aplicaciones" Type="Seguridad2017Model.Store.Aplicaciones" Multiplicity="1" />
+          <End Role="Modulos" Type="Seguridad2017Model.Store.Modulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aplicaciones">
+              <PropertyRef Name="idAplicacion" />
+            </Principal>
+            <Dependent Role="Modulos">
+              <PropertyRef Name="idAplicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roles_UnidadesAdministrativas">
+          <End Role="UnidadesAdministrativas" Type="Seguridad2017Model.Store.UnidadesAdministrativas" Multiplicity="1" />
+          <End Role="Roles" Type="Seguridad2017Model.Store.Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesAdministrativas">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Principal>
+            <Dependent Role="Roles">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesPermisos_Modulos">
+          <End Role="Modulos" Type="Seguridad2017Model.Store.Modulos" Multiplicity="1" />
+          <End Role="RolesPermisos" Type="Seguridad2017Model.Store.RolesPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="idModulo" />
+            </Principal>
+            <Dependent Role="RolesPermisos">
+              <PropertyRef Name="idModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesPermisos_Roles">
+          <End Role="Roles" Type="Seguridad2017Model.Store.Roles" Multiplicity="1" />
+          <End Role="RolesPermisos" Type="Seguridad2017Model.Store.RolesPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="RolesPermisos">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_UnidadesAdministrativas">
+          <End Role="UnidadesAdministrativas" Type="Seguridad2017Model.Store.UnidadesAdministrativas" Multiplicity="1" />
+          <End Role="Usuarios" Type="Seguridad2017Model.Store.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesAdministrativas">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosPermisos_Modulos">
+          <End Role="Modulos" Type="Seguridad2017Model.Store.Modulos" Multiplicity="1" />
+          <End Role="UsuariosPermisos" Type="Seguridad2017Model.Store.UsuariosPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="idModulo" />
+            </Principal>
+            <Dependent Role="UsuariosPermisos">
+              <PropertyRef Name="idModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosPermisos_Usuarios">
+          <End Role="Usuarios" Type="Seguridad2017Model.Store.Usuarios" Multiplicity="1" />
+          <End Role="UsuariosPermisos" Type="Seguridad2017Model.Store.UsuariosPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="UsuariosPermisos">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosRoles_Roles">
+          <End Role="Roles" Type="Seguridad2017Model.Store.Roles" Multiplicity="1" />
+          <End Role="UsuariosRoles" Type="Seguridad2017Model.Store.UsuariosRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="UsuariosRoles">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosRoles_Usuarios">
+          <End Role="Usuarios" Type="Seguridad2017Model.Store.Usuarios" Multiplicity="1" />
+          <End Role="UsuariosRoles" Type="Seguridad2017Model.Store.UsuariosRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="UsuariosRoles">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spAsignarRolAUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="idRol" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spQuitarRolAUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Seguridad2017Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Seguridad2017Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UnidadesAdministrativas" EntityType="Seguridad2017Model.UnidadesAdministrativas" />
+          <EntitySet Name="Usuarios" EntityType="Seguridad2017Model.Usuarios" />
+          <AssociationSet Name="FK_Usuarios_UnidadesAdministrativas" Association="Seguridad2017Model.FK_Usuarios_UnidadesAdministrativas">
+            <End Role="UnidadesAdministrativas" EntitySet="UnidadesAdministrativas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="UsuariosPermisos" EntityType="Seguridad2017Model.UsuariosPermisos" />
+          <AssociationSet Name="FK_UsuariosPermisos_Usuarios" Association="Seguridad2017Model.FK_UsuariosPermisos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="UsuariosPermisos" EntitySet="UsuariosPermisos" />
+          </AssociationSet>
+          <EntitySet Name="Aplicaciones" EntityType="Seguridad2017Model.Aplicaciones" />
+          <EntitySet Name="AplicacionesUA" EntityType="Seguridad2017Model.AplicacionesUA" />
+          <AssociationSet Name="FK_AplicacionesUA_Aplicaciones" Association="Seguridad2017Model.FK_AplicacionesUA_Aplicaciones">
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+            <End Role="AplicacionesUA" EntitySet="AplicacionesUA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AplicacionesUA_UnidadesAdministrativas" Association="Seguridad2017Model.FK_AplicacionesUA_UnidadesAdministrativas">
+            <End Role="UnidadesAdministrativas" EntitySet="UnidadesAdministrativas" />
+            <End Role="AplicacionesUA" EntitySet="AplicacionesUA" />
+          </AssociationSet>
+          <EntitySet Name="Modulos" EntityType="Seguridad2017Model.Modulos" />
+          <AssociationSet Name="FK_Modulos_Aplicaciones" Association="Seguridad2017Model.FK_Modulos_Aplicaciones">
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+            <End Role="Modulos" EntitySet="Modulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosPermisos_Modulos" Association="Seguridad2017Model.FK_UsuariosPermisos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="UsuariosPermisos" EntitySet="UsuariosPermisos" />
+          </AssociationSet>
+          <EntitySet Name="RegistroEventos" EntityType="Seguridad2017Model.RegistroEventos" />
+          <EntitySet Name="ExcepcionesLog" EntityType="Seguridad2017Model.ExcepcionesLog" />
+          <EntitySet Name="Roles" EntityType="Seguridad2017Model.Roles" />
+          <EntitySet Name="RolesPermisos" EntityType="Seguridad2017Model.RolesPermisos" />
+          <AssociationSet Name="FK_RolesPermisos_Modulos" Association="Seguridad2017Model.FK_RolesPermisos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="RolesPermisos" EntitySet="RolesPermisos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roles_UnidadesAdministrativas" Association="Seguridad2017Model.FK_Roles_UnidadesAdministrativas">
+            <End Role="UnidadesAdministrativas" EntitySet="UnidadesAdministrativas" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesPermisos_Roles" Association="Seguridad2017Model.FK_RolesPermisos_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolesPermisos" EntitySet="RolesPermisos" />
+          </AssociationSet>
+          <EntitySet Name="UsuariosRoles" EntityType="Seguridad2017Model.UsuariosRoles" />
+          <AssociationSet Name="FK_UsuariosRoles_Roles" Association="Seguridad2017Model.FK_UsuariosRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UsuariosRoles" EntitySet="UsuariosRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuariosRoles_Usuarios" Association="Seguridad2017Model.FK_UsuariosRoles_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="UsuariosRoles" EntitySet="UsuariosRoles" />
+          </AssociationSet>
+          <FunctionImport Name="spAsignarRolAUsuario">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="idRol" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spQuitarRolAUsuario">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="UnidadesAdministrativas">
+          <Key>
+            <PropertyRef Name="idUnidadAdministrativa" />
+          </Key>
+          <Property Type="Int32" Name="idUnidadAdministrativa" Nullable="false" />
+          <Property Type="DateTime" Name="Agregado" Nullable="false" />
+          <Property Type="DateTime" Name="Modificado" />
+          <Property Type="Boolean" Name="Eliminado" Nullable="false" />
+          <Property Type="String" Name="Clave" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RFC" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Telefono" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idSectorPublico" Nullable="false" />
+          <Property Type="Int32" Name="idSecPubFin" Nullable="false" />
+          <Property Type="Int32" Name="idSectorEconomico" Nullable="false" />
+          <Property Type="Int32" Name="idEntePublico" Nullable="false" />
+          <Property Type="String" Name="Notas" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Padre" />
+          <NavigationProperty Name="Usuarios" Relationship="Seguridad2017Model.FK_Usuarios_UnidadesAdministrativas" FromRole="UnidadesAdministrativas" ToRole="Usuarios" />
+          <NavigationProperty Name="AplicacionesUA" Relationship="Seguridad2017Model.FK_AplicacionesUA_UnidadesAdministrativas" FromRole="UnidadesAdministrativas" ToRole="AplicacionesUA" />
+          <NavigationProperty Name="Roles" Relationship="Seguridad2017Model.FK_Roles_UnidadesAdministrativas" FromRole="UnidadesAdministrativas" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="DateTime" Name="Agregado" Nullable="false" />
+          <Property Type="DateTime" Name="Modificado" />
+          <Property Type="Boolean" Name="Eliminado" Nullable="false" />
+          <Property Type="Int32" Name="idUnidadAdministrativa" Nullable="false" />
+          <Property Type="Int32" Name="idAplicacion" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Pwd" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Puesto" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Telefono" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
+          <Property Type="String" Name="Notas" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="UsaBiometricos" Nullable="false" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsOnLine" />
+          <Property Type="Boolean" Name="IsApproved" />
+          <Property Type="Boolean" Name="IsLockedOut" />
+          <Property Type="DateTime" Name="LastLoginDate" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" />
+          <Property Type="DateTime" Name="LastLockoutDate" />
+          <Property Type="Int32" Name="FailedPasswordAttemptCount" />
+          <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" />
+          <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" />
+          <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" />
+          <Property Type="Int32" Name="DiasVigenciaPassword" />
+          <NavigationProperty Name="UnidadesAdministrativas" Relationship="Seguridad2017Model.FK_Usuarios_UnidadesAdministrativas" FromRole="Usuarios" ToRole="UnidadesAdministrativas" />
+          <NavigationProperty Name="UsuariosPermisos" Relationship="Seguridad2017Model.FK_UsuariosPermisos_Usuarios" FromRole="Usuarios" ToRole="UsuariosPermisos" />
+          <NavigationProperty Name="UsuariosRoles" Relationship="Seguridad2017Model.FK_UsuariosRoles_Usuarios" FromRole="Usuarios" ToRole="UsuariosRoles" />
+        </EntityType>
+        <Association Name="FK_Usuarios_UnidadesAdministrativas">
+          <End Type="Seguridad2017Model.UnidadesAdministrativas" Role="UnidadesAdministrativas" Multiplicity="1" />
+          <End Type="Seguridad2017Model.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesAdministrativas">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UsuariosPermisos">
+          <Key>
+            <PropertyRef Name="idUsuarioPermiso" />
+          </Key>
+          <Property Type="Int32" Name="idUsuarioPermiso" Nullable="false" />
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="Int32" Name="idModulo" Nullable="false" />
+          <Property Type="Boolean" Name="Visualizar" Nullable="false" />
+          <Property Type="Boolean" Name="Agregar" />
+          <Property Type="Boolean" Name="Modificar" />
+          <Property Type="Boolean" Name="Eliminar" />
+          <Property Type="Boolean" Name="Especial" />
+          <NavigationProperty Name="Usuarios" Relationship="Seguridad2017Model.FK_UsuariosPermisos_Usuarios" FromRole="UsuariosPermisos" ToRole="Usuarios" />
+          <NavigationProperty Name="Modulos" Relationship="Seguridad2017Model.FK_UsuariosPermisos_Modulos" FromRole="UsuariosPermisos" ToRole="Modulos" />
+        </EntityType>
+        <Association Name="FK_UsuariosPermisos_Usuarios">
+          <End Type="Seguridad2017Model.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="Seguridad2017Model.UsuariosPermisos" Role="UsuariosPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="UsuariosPermisos">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Aplicaciones">
+          <Key>
+            <PropertyRef Name="idAplicacion" />
+          </Key>
+          <Property Type="Int32" Name="idAplicacion" Nullable="false" />
+          <Property Type="DateTime" Name="Agregado" Nullable="false" />
+          <Property Type="DateTime" Name="Modificado" />
+          <Property Type="Boolean" Name="Eliminado" Nullable="false" />
+          <Property Type="String" Name="Clave" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activa" Nullable="false" />
+          <Property Type="String" Name="URL" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Version" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Icono" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Intentos" />
+          <NavigationProperty Name="AplicacionesUA" Relationship="Seguridad2017Model.FK_AplicacionesUA_Aplicaciones" FromRole="Aplicaciones" ToRole="AplicacionesUA" />
+          <NavigationProperty Name="Modulos" Relationship="Seguridad2017Model.FK_Modulos_Aplicaciones" FromRole="Aplicaciones" ToRole="Modulos" />
+        </EntityType>
+        <EntityType Name="AplicacionesUA">
+          <Key>
+            <PropertyRef Name="idAplicacionUA" />
+          </Key>
+          <Property Type="Int32" Name="idAplicacionUA" Nullable="false" />
+          <Property Type="Int32" Name="idUnidadAdministrativa" Nullable="false" />
+          <Property Type="Int32" Name="idAplicacion" Nullable="false" />
+          <NavigationProperty Name="Aplicaciones" Relationship="Seguridad2017Model.FK_AplicacionesUA_Aplicaciones" FromRole="AplicacionesUA" ToRole="Aplicaciones" />
+          <NavigationProperty Name="UnidadesAdministrativas" Relationship="Seguridad2017Model.FK_AplicacionesUA_UnidadesAdministrativas" FromRole="AplicacionesUA" ToRole="UnidadesAdministrativas" />
+        </EntityType>
+        <Association Name="FK_AplicacionesUA_Aplicaciones">
+          <End Type="Seguridad2017Model.Aplicaciones" Role="Aplicaciones" Multiplicity="1" />
+          <End Type="Seguridad2017Model.AplicacionesUA" Role="AplicacionesUA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aplicaciones">
+              <PropertyRef Name="idAplicacion" />
+            </Principal>
+            <Dependent Role="AplicacionesUA">
+              <PropertyRef Name="idAplicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AplicacionesUA_UnidadesAdministrativas">
+          <End Type="Seguridad2017Model.UnidadesAdministrativas" Role="UnidadesAdministrativas" Multiplicity="1" />
+          <End Type="Seguridad2017Model.AplicacionesUA" Role="AplicacionesUA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesAdministrativas">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Principal>
+            <Dependent Role="AplicacionesUA">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="idModulo" />
+          </Key>
+          <Property Type="Int32" Name="idModulo" Nullable="false" />
+          <Property Type="DateTime" Name="Agregado" Nullable="false" />
+          <Property Type="DateTime" Name="Modificado" />
+          <Property Type="Boolean" Name="Eliminado" Nullable="false" />
+          <Property Type="Int32" Name="idAplicacion" Nullable="false" />
+          <Property Type="String" Name="Codigo" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MenuNavigateURL" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MenuToolTip" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MenuVisibleIndex" />
+          <Property Type="String" Name="MenuImage" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Padre" />
+          <Property Type="String" Name="Permisos" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aplicaciones" Relationship="Seguridad2017Model.FK_Modulos_Aplicaciones" FromRole="Modulos" ToRole="Aplicaciones" />
+          <NavigationProperty Name="UsuariosPermisos" Relationship="Seguridad2017Model.FK_UsuariosPermisos_Modulos" FromRole="Modulos" ToRole="UsuariosPermisos" />
+          <NavigationProperty Name="RolesPermisos" Relationship="Seguridad2017Model.FK_RolesPermisos_Modulos" FromRole="Modulos" ToRole="RolesPermisos" />
+        </EntityType>
+        <Association Name="FK_Modulos_Aplicaciones">
+          <End Type="Seguridad2017Model.Aplicaciones" Role="Aplicaciones" Multiplicity="1" />
+          <End Type="Seguridad2017Model.Modulos" Role="Modulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aplicaciones">
+              <PropertyRef Name="idAplicacion" />
+            </Principal>
+            <Dependent Role="Modulos">
+              <PropertyRef Name="idAplicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosPermisos_Modulos">
+          <End Type="Seguridad2017Model.Modulos" Role="Modulos" Multiplicity="1" />
+          <End Type="Seguridad2017Model.UsuariosPermisos" Role="UsuariosPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="idModulo" />
+            </Principal>
+            <Dependent Role="UsuariosPermisos">
+              <PropertyRef Name="idModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RegistroEventos">
+          <Key>
+            <PropertyRef Name="idRegistroEvento" />
+          </Key>
+          <Property Type="Int32" Name="idRegistroEvento" Nullable="false" />
+          <Property Type="Int32" Name="idUnidadAdministrativa" />
+          <Property Type="Int32" Name="idAplicacion" />
+          <Property Type="Int32" Name="idModulo" />
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="UsuarioIP" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UsuarioAg" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaHora" Nullable="false" />
+          <Property Type="Boolean" Name="ResultadoOperacion" />
+          <Property Type="Int32" Name="PistaColor" />
+          <Property Type="Int32" Name="PistaTipo" />
+          <Property Type="String" Name="PistaDetalle" MaxLength="3000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ExcepcionesLog">
+          <Key>
+            <PropertyRef Name="idExcepcion" />
+          </Key>
+          <Property Type="Int32" Name="idExcepcion" Nullable="false" />
+          <Property Type="Int32" Name="idUnidadAdministrativa" />
+          <Property Type="Int32" Name="idAplicacion" />
+          <Property Type="Int32" Name="idModulo" />
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="UsuarioIP" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Mensaje" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StackTrace" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TargetSite" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HelpLink" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaHora" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Type="Int32" Name="idRol" Nullable="false" />
+          <Property Type="DateTime" Name="Agregado" Nullable="false" />
+          <Property Type="DateTime" Name="Modificado" />
+          <Property Type="Boolean" Name="Eliminado" Nullable="false" />
+          <Property Type="Int32" Name="idUnidadAdministrativa" Nullable="false" />
+          <Property Type="Int32" Name="idAplicacion" />
+          <Property Type="String" Name="Codigo" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UnidadesAdministrativas" Relationship="Seguridad2017Model.FK_Roles_UnidadesAdministrativas" FromRole="Roles" ToRole="UnidadesAdministrativas" />
+          <NavigationProperty Name="RolesPermisos" Relationship="Seguridad2017Model.FK_RolesPermisos_Roles" FromRole="Roles" ToRole="RolesPermisos" />
+          <NavigationProperty Name="UsuariosRoles" Relationship="Seguridad2017Model.FK_UsuariosRoles_Roles" FromRole="Roles" ToRole="UsuariosRoles" />
+        </EntityType>
+        <EntityType Name="RolesPermisos">
+          <Key>
+            <PropertyRef Name="idRolPermisos" />
+          </Key>
+          <Property Type="Int32" Name="idRolPermisos" Nullable="false" />
+          <Property Type="Int32" Name="idRol" Nullable="false" />
+          <Property Type="Int32" Name="idModulo" Nullable="false" />
+          <Property Type="Boolean" Name="Visualizar" Nullable="false" />
+          <Property Type="Boolean" Name="Agregar" />
+          <Property Type="Boolean" Name="Modificar" />
+          <Property Type="Boolean" Name="Eliminar" />
+          <Property Type="Boolean" Name="Especial" />
+          <NavigationProperty Name="Modulos" Relationship="Seguridad2017Model.FK_RolesPermisos_Modulos" FromRole="RolesPermisos" ToRole="Modulos" />
+          <NavigationProperty Name="Roles" Relationship="Seguridad2017Model.FK_RolesPermisos_Roles" FromRole="RolesPermisos" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_RolesPermisos_Modulos">
+          <End Type="Seguridad2017Model.Modulos" Role="Modulos" Multiplicity="1" />
+          <End Type="Seguridad2017Model.RolesPermisos" Role="RolesPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="idModulo" />
+            </Principal>
+            <Dependent Role="RolesPermisos">
+              <PropertyRef Name="idModulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roles_UnidadesAdministrativas">
+          <End Type="Seguridad2017Model.UnidadesAdministrativas" Role="UnidadesAdministrativas" Multiplicity="1" />
+          <End Type="Seguridad2017Model.Roles" Role="Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnidadesAdministrativas">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Principal>
+            <Dependent Role="Roles">
+              <PropertyRef Name="idUnidadAdministrativa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesPermisos_Roles">
+          <End Type="Seguridad2017Model.Roles" Role="Roles" Multiplicity="1" />
+          <End Type="Seguridad2017Model.RolesPermisos" Role="RolesPermisos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="RolesPermisos">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UsuariosRoles">
+          <Key>
+            <PropertyRef Name="idUsuarioRol" />
+          </Key>
+          <Property Type="Int32" Name="idUsuarioRol" Nullable="false" />
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="Int32" Name="idRol" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="Seguridad2017Model.FK_UsuariosRoles_Roles" FromRole="UsuariosRoles" ToRole="Roles" />
+          <NavigationProperty Name="Usuarios" Relationship="Seguridad2017Model.FK_UsuariosRoles_Usuarios" FromRole="UsuariosRoles" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="FK_UsuariosRoles_Roles">
+          <End Type="Seguridad2017Model.Roles" Role="Roles" Multiplicity="1" />
+          <End Type="Seguridad2017Model.UsuariosRoles" Role="UsuariosRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="UsuariosRoles">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuariosRoles_Usuarios">
+          <End Type="Seguridad2017Model.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="Seguridad2017Model.UsuariosRoles" Role="UsuariosRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="UsuariosRoles">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Seguridad2017ModelStoreContainer" CdmEntityContainer="Seguridad2017Entities">
+          <EntitySetMapping Name="UnidadesAdministrativas">
+            <EntityTypeMapping TypeName="Seguridad2017Model.UnidadesAdministrativas">
+              <MappingFragment StoreEntitySet="UnidadesAdministrativas">
+                <ScalarProperty Name="Padre" ColumnName="Padre" />
+                <ScalarProperty Name="Notas" ColumnName="Notas" />
+                <ScalarProperty Name="idEntePublico" ColumnName="idEntePublico" />
+                <ScalarProperty Name="idSectorEconomico" ColumnName="idSectorEconomico" />
+                <ScalarProperty Name="idSecPubFin" ColumnName="idSecPubFin" />
+                <ScalarProperty Name="idSectorPublico" ColumnName="idSectorPublico" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+                <ScalarProperty Name="Agregado" ColumnName="Agregado" />
+                <ScalarProperty Name="idUnidadAdministrativa" ColumnName="idUnidadAdministrativa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Seguridad2017Model.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="DiasVigenciaPassword" ColumnName="DiasVigenciaPassword" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsOnLine" ColumnName="IsOnLine" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="UsaBiometricos" ColumnName="UsaBiometricos" />
+                <ScalarProperty Name="Notas" ColumnName="Notas" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+                <ScalarProperty Name="idUnidadAdministrativa" ColumnName="idUnidadAdministrativa" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+                <ScalarProperty Name="Agregado" ColumnName="Agregado" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuariosPermisos">
+            <EntityTypeMapping TypeName="Seguridad2017Model.UsuariosPermisos">
+              <MappingFragment StoreEntitySet="UsuariosPermisos">
+                <ScalarProperty Name="Especial" ColumnName="Especial" />
+                <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+                <ScalarProperty Name="Modificar" ColumnName="Modificar" />
+                <ScalarProperty Name="Agregar" ColumnName="Agregar" />
+                <ScalarProperty Name="Visualizar" ColumnName="Visualizar" />
+                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idUsuarioPermiso" ColumnName="idUsuarioPermiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aplicaciones">
+            <EntityTypeMapping TypeName="Seguridad2017Model.Aplicaciones">
+              <MappingFragment StoreEntitySet="Aplicaciones">
+                <ScalarProperty Name="Intentos" ColumnName="Intentos" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Activa" ColumnName="Activa" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+                <ScalarProperty Name="Agregado" ColumnName="Agregado" />
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AplicacionesUA">
+            <EntityTypeMapping TypeName="Seguridad2017Model.AplicacionesUA">
+              <MappingFragment StoreEntitySet="AplicacionesUA">
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+                <ScalarProperty Name="idUnidadAdministrativa" ColumnName="idUnidadAdministrativa" />
+                <ScalarProperty Name="idAplicacionUA" ColumnName="idAplicacionUA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulos">
+            <EntityTypeMapping TypeName="Seguridad2017Model.Modulos">
+              <MappingFragment StoreEntitySet="Modulos">
+                <ScalarProperty Name="Permisos" ColumnName="Permisos" />
+                <ScalarProperty Name="Padre" ColumnName="Padre" />
+                <ScalarProperty Name="MenuImage" ColumnName="MenuImage" />
+                <ScalarProperty Name="MenuVisibleIndex" ColumnName="MenuVisibleIndex" />
+                <ScalarProperty Name="MenuToolTip" ColumnName="MenuToolTip" />
+                <ScalarProperty Name="MenuNavigateURL" ColumnName="MenuNavigateURL" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+                <ScalarProperty Name="Agregado" ColumnName="Agregado" />
+                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistroEventos">
+            <EntityTypeMapping TypeName="Seguridad2017Model.RegistroEventos">
+              <MappingFragment StoreEntitySet="RegistroEventos">
+                <ScalarProperty Name="PistaDetalle" ColumnName="PistaDetalle" />
+                <ScalarProperty Name="PistaTipo" ColumnName="PistaTipo" />
+                <ScalarProperty Name="PistaColor" ColumnName="PistaColor" />
+                <ScalarProperty Name="ResultadoOperacion" ColumnName="ResultadoOperacion" />
+                <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+                <ScalarProperty Name="UsuarioAg" ColumnName="UsuarioAg" />
+                <ScalarProperty Name="UsuarioIP" ColumnName="UsuarioIP" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+                <ScalarProperty Name="idUnidadAdministrativa" ColumnName="idUnidadAdministrativa" />
+                <ScalarProperty Name="idRegistroEvento" ColumnName="idRegistroEvento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExcepcionesLog">
+            <EntityTypeMapping TypeName="Seguridad2017Model.ExcepcionesLog">
+              <MappingFragment StoreEntitySet="ExcepcionesLog">
+                <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+                <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
+                <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="UsuarioIP" ColumnName="UsuarioIP" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+                <ScalarProperty Name="idUnidadAdministrativa" ColumnName="idUnidadAdministrativa" />
+                <ScalarProperty Name="idExcepcion" ColumnName="idExcepcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="Seguridad2017Model.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+                <ScalarProperty Name="idUnidadAdministrativa" ColumnName="idUnidadAdministrativa" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+                <ScalarProperty Name="Agregado" ColumnName="Agregado" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolesPermisos">
+            <EntityTypeMapping TypeName="Seguridad2017Model.RolesPermisos">
+              <MappingFragment StoreEntitySet="RolesPermisos">
+                <ScalarProperty Name="Especial" ColumnName="Especial" />
+                <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+                <ScalarProperty Name="Modificar" ColumnName="Modificar" />
+                <ScalarProperty Name="Agregar" ColumnName="Agregar" />
+                <ScalarProperty Name="Visualizar" ColumnName="Visualizar" />
+                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="idRolPermisos" ColumnName="idRolPermisos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuariosRoles">
+            <EntityTypeMapping TypeName="Seguridad2017Model.UsuariosRoles">
+              <MappingFragment StoreEntitySet="UsuariosRoles">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idUsuarioRol" ColumnName="idUsuarioRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spAsignarRolAUsuario" FunctionName="Seguridad2017Model.Store.spAsignarRolAUsuario" />
+          <FunctionImportMapping FunctionImportName="spQuitarRolAUsuario" FunctionName="Seguridad2017Model.Store.spQuitarRolAUsuario" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SeguridadModel">
+        <EntityTypeShape EntityType="Seguridad2017Model.UnidadesAdministrativas" Width="1.5" PointX="0.75" PointY="2.5" Height="3.9033007812500031" />
+        <EntityTypeShape EntityType="Seguridad2017Model.Usuarios" Width="1.5" PointX="3" PointY="1.125" Height="6.5955208333333317" />
+        <AssociationConnector Association="Seguridad2017Model.FK_Usuarios_UnidadesAdministrativas" >
+          <ConnectorPoint PointX="2.25" PointY="4.6126993229166651" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="4.6126993229166642" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="4.6126993229166651" />
+          <ConnectorPoint PointX="3" PointY="4.6126993229166651" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Seguridad2017Model.UsuariosPermisos" Width="1.75" PointX="5.25" PointY="3.125" Height="2.7494921874999996" />
+        <AssociationConnector Association="Seguridad2017Model.FK_UsuariosPermisos_Usuarios" >
+          <ConnectorPoint PointX="4.5" PointY="4.5958968098958328" />
+          <ConnectorPoint PointX="5.25" PointY="4.5958968098958328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Seguridad2017Model.Aplicaciones" Width="1.5" PointX="5.375" PointY="6.75" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="Seguridad2017Model.AplicacionesUA" Width="1.5" PointX="8.625" PointY="5.375" Height="1.9802864583333317" />
+        <AssociationConnector Association="Seguridad2017Model.FK_AplicacionesUA_Aplicaciones" >
+          <ConnectorPoint PointX="6.875" PointY="7.052643229166665" />
+          <ConnectorPoint PointX="7.885416666666667" PointY="7.0526432291666641" />
+          <ConnectorPoint PointX="8.0520833333333339" PointY="7.052643229166665" />
+          <ConnectorPoint PointX="8.625" PointY="7.052643229166665" />
+        </AssociationConnector>
+        <AssociationConnector Association="Seguridad2017Model.FK_AplicacionesUA_UnidadesAdministrativas" >
+          <ConnectorPoint PointX="1.5" PointY="2.5" />
+          <ConnectorPoint PointX="1.5" PointY="2.25" />
+          <ConnectorPoint PointX="2.75" PointY="2.25" />
+          <ConnectorPoint PointX="2.75" PointY="8.162822265625" />
+          <ConnectorPoint PointX="5.125" PointY="8.162822265625" />
+          <ConnectorPoint PointX="5.125" PointY="6.4083968098958319" />
+          <ConnectorPoint PointX="7.885416666666667" PointY="6.408396809895831" />
+          <ConnectorPoint PointX="8.0520833333333339" PointY="6.4083968098958319" />
+          <ConnectorPoint PointX="8.625" PointY="6.4083968098958319" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Seguridad2017Model.Modulos" Width="1.5" PointX="7.625" PointY="8.625" Height="3.9033007812499996" />
+        <AssociationConnector Association="Seguridad2017Model.FK_Modulos_Aplicaciones" >
+          <ConnectorPoint PointX="6.875" PointY="9.5429996744791659" />
+          <ConnectorPoint PointX="7.625" PointY="9.5429996744791659" />
+        </AssociationConnector>
+        <AssociationConnector Association="Seguridad2017Model.FK_UsuariosPermisos_Modulos" >
+          <ConnectorPoint PointX="7.96875" PointY="8.625" />
+          <ConnectorPoint PointX="7.96875" PointY="4.7256982421875" />
+          <ConnectorPoint PointX="7" PointY="4.7256982421875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Seguridad2017Model.RegistroEventos" Width="1.5" PointX="8.375" PointY="0.75" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="Seguridad2017Model.ExcepcionesLog" Width="1.5" PointX="0.75" PointY="8.75" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="Seguridad2017Model.Roles" Width="1.5" PointX="3" PointY="9.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="Seguridad2017Model.RolesPermisos" Width="1.5" PointX="9.875" PointY="9.25" Height="2.9417936197916674" />
+        <AssociationConnector Association="Seguridad2017Model.FK_RolesPermisos_Modulos" >
+          <ConnectorPoint PointX="9.125" PointY="10.720896809895834" />
+          <ConnectorPoint PointX="9.875" PointY="10.720896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Seguridad2017Model.FK_Roles_UnidadesAdministrativas" >
+          <ConnectorPoint PointX="2.2500000000000009" PointY="6.7879036458333326" />
+          <ConnectorPoint PointX="2.625" PointY="7.1629036458333317" />
+          <ConnectorPoint PointX="2.625" PointY="10.692047526041666" />
+          <ConnectorPoint PointX="3" PointY="10.692047526041666" />
+        </AssociationConnector>
+        <AssociationConnector Association="Seguridad2017Model.FK_RolesPermisos_Roles" >
+          <ConnectorPoint PointX="4.5" PointY="11.105499674479166" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="11.105499674479166" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="11.105499674479166" />
+          <ConnectorPoint PointX="7.375" PointY="11.105499674479166" />
+          <ConnectorPoint PointX="7.375" PointY="12.970602213541667" />
+          <ConnectorPoint PointX="10.625" PointY="12.970602213541667" />
+          <ConnectorPoint PointX="10.625" PointY="12.191793619791667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Seguridad2017Model.UsuariosRoles" Width="1.5" PointX="5.25" PointY="11.75" Height="1.9802864583333353" />
+        <AssociationConnector Association="Seguridad2017Model.FK_UsuariosRoles_Roles" >
+          <ConnectorPoint PointX="4.5" PointY="12.004547526041666" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="12.004547526041666" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="12.004547526041666" />
+          <ConnectorPoint PointX="5.25" PointY="12.004547526041666" />
+        </AssociationConnector>
+        <AssociationConnector Association="Seguridad2017Model.FK_UsuariosRoles_Usuarios" >
+          <ConnectorPoint PointX="4.5" PointY="8.1051236979166656" />
+          <ConnectorPoint PointX="4.875" PointY="8.4801236979166656" />
+          <ConnectorPoint PointX="4.875" PointY="12.898668992187503" />
+          <ConnectorPoint PointX="5.25" PointY="12.898668992187503" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,47 @@
+﻿* {     
+   margin: 0; padding: 0; 
+} 
+html, body     
+{
+    height:100% 
+}
+.form1 {
+    height:100% 
+}
+ 
+.wrapper  {
+   min-height: 100%; 
+   height: auto; 
+   height: 100%; 
+   margin: 0 auto -40px; 
+}
+ 
+
+.push {
+    height: 40px;
+}
+ 
+.footer
+{
+    position:fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 9999;
+    height: 40px;
+    width: 100%; 
+    border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    border: 1px solid #000000;
+    background-color: #DADADA;
+    text-align: center;
+} 
+
+/*Opera Fix*/
+/*body:before {
+     content: "";
+      height: 100%; 
+      float: left; 
+      width: 0; 
+      margin-top: -32767px;/* Efecto Negativo para OPERA
+} */

@@ -1,0 +1,178 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs"
+    Inherits="Suite.Web.Seguridad.MasterPage" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxEditors.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+<%@ Register TagPrefix="dxrp" Namespace="DevExpress.Web.ASPxRoundPanel" Assembly="DevExpress.Web.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxp" Namespace="DevExpress.Web.ASPxPanel" Assembly="DevExpress.Web.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Empresa</title>
+    <link href="App_Themes/Tema1/StyleSheet1.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" class="form1">
+    <center>
+        <div class="wrapper">
+            <table width="1000px">
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <center>
+                            <dxrp:ASPxRoundPanel ID="rpRoundPanel" runat="server" Width="1000px" ClientInstanceName="RoundPanel1"
+                                ShowHeader="False" CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" CssPostfix="Office2010Blue"
+                                EnableDefaultAppearance="False" GroupBoxCaptionOffsetX="6px" GroupBoxCaptionOffsetY="-19px"
+                                SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css" Height="100%">
+                                <ContentPaddings PaddingBottom="10px" PaddingLeft="9px" PaddingRight="11px" PaddingTop="10px" />
+                                <HeaderStyle>
+                                    <Paddings PaddingBottom="6px" PaddingLeft="9px" PaddingRight="11px" PaddingTop="3px" />
+                                </HeaderStyle>
+                                <PanelCollection>
+                                    <dxp:PanelContent runat="server">
+                                        <dxp:ASPxPanel ID="pnlContent" runat="server" Width="100%" ClientInstanceName="ContentPanel">
+                                            <PanelCollection>
+                                                <dxp:PanelContent runat="server">
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Image ID="Image1" runat="server" Height="83px" Width="153px" />
+                                                            </td>
+                                                            <td width="700px" align="center">
+                                                                <h1>
+                                                                    Administración de Seguridad
+                                                                </h1>
+                                                                <dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Administración de Seguridad" Font-Bold="True"
+                                                                    CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" CssPostfix="Office2010Blue"
+                                                                    ForeColor="#FF6600">
+                                                                </dx:ASPxLabel>
+                                                            </td>
+                                                            <td width="200px" style="border-style: outset; border-width: 2px">
+                                                                <div class="loginDisplay">
+                                                                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                                                                        <AnonymousTemplate>
+                                                                            [ <a href="~/Login.aspx" id="HeadLoginStatus" runat="server">Iniciar sesión</a>
+                                                                            ]
+                                                                        </AnonymousTemplate>
+                                                                        <LoggedInTemplate>
+                                                                            <b>Usuario Actual: </b><span class="bold">
+                                                                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                                                                            </span>
+                                                                            <br />
+                                                                            <br />
+                                                                            <center>
+                                                                                [
+                                                                                <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión"
+                                                                                    LogoutPageUrl="~/" Font-Size="Small" Font-Names="Arial" ForeColor="#003366" />
+                                                                                ]
+                                                                            </center>
+                                                                        </LoggedInTemplate>
+                                                                    </asp:LoginView>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </dxp:PanelContent>
+                                            </PanelCollection>
+                                        </dxp:ASPxPanel>
+                                    </dxp:PanelContent>
+                                </PanelCollection>
+                            </dxrp:ASPxRoundPanel>
+                        </center>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="1000px">
+                        <center>
+                            <dx:ASPxMenu ID="ASPxMenu1" runat="server" Width="1000px" AutoSeparators="RootOnly"
+                                CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" CssPostfix="Office2010Blue"
+                                ShowPopOutImages="True" SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css"
+                                EnableViewState="False" ShowSubMenuShadow="False">
+                                <Items>
+                                    <dx:MenuItem Text="No se pudo obtener el menú de formularios para este usuario, posiblemente dicho usuario no se le han asignado que módulos visualizar, contacte con su administrador."
+                                        Name="No_pudo_obtener" NavigateUrl="~/Default.aspx">
+                                    </dx:MenuItem>
+                                </Items>
+                                <LoadingPanelImage Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                                </LoadingPanelImage>
+                                <ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+                                <ItemStyle DropDownButtonSpacing="10px" PopOutImageSpacing="10px" />
+                                <LoadingPanelStyle ImageSpacing="5px">
+                                </LoadingPanelStyle>
+                                <SubMenuStyle GutterImageSpacing="9px" GutterWidth="0px" />
+                            </dx:ASPxMenu>
+                        </center>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="1000px">
+                        <div style="border-radius: 4px 4px 4px 4px; -moz-border-radius: 4px 4px 4px 4px;
+                            -webkit-border-radius: 4px 4px 4px 4px; border: 1px solid #000000; background-color: #DADADA;">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td width="900px">
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+            <div class="push">
+            </div>
+        </div>
+        <%--<div style="position: fixed; bottom: 0px; width: 99%;border-radius: 16px 16px 16px 16px; 
+        -moz-border-radius: 16px 16px 16px 16px;
+        -webkit-border-radius: 16px 16px 16px 16px;
+        border: 1px solid #000000; background-color: #DADADA;" align="center">
+          <dx:ASPxLabel ID="ASPxLabel2" runat="server" 
+              Text="Suite Gubernamental&reg; 2014" Font-Bold="True" ForeColor="Gray">
+        </dx:ASPxLabel><br/>
+        <dx:ASPxLabel ID="ASPxLabel1" runat="server" 
+              Text="Procesos Estratégicos Homologados S.A. de C.V." ForeColor="Gray">
+        </dx:ASPxLabel>
+    </div>--%>
+        <%--<div class ="footer" >
+              <dx:ASPxLabel ID="ASPxLabel4" runat="server" 
+                  Text="Suite Gubernamental&reg; 2014" Font-Bold="True" ForeColor="Gray">
+            </dx:ASPxLabel><br/>
+            <dx:ASPxLabel ID="ASPxLabel5" runat="server" 
+                  Text="Procesos Estratégicos Homologados S.A. de C.V." ForeColor="Gray">
+            </dx:ASPxLabel>
+        </div>--%>
+    </center>
+    </form>
+</body>
+</html>
+<%--<html>
+    <head></head>
+    <body>
+        <div id=”wrapper”>
+            <div id=”header”></div>
+            <div id=”content”>
+                <!– Aquí irá el contenido de la página –>
+                <div id=”push”></div>
+            </div>
+            <div id=”footer”></div>
+        </div>
+    </body>
+</html>--%>
